@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app='myApp'>
+  <head>
+    <title>Angular First Project</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.js"></script>
+    <script type="text/javascript">
+      var myAppModule = angular.module('myApp', []);
+      // the .controller() method add a controller to the module
+      myAppModule.controller('studentController', function ($scope) {
+        $scope.students_Array = [
+          {name: 'Mike', age: 34},
+          {name: 'John', age: 24},
+          {name: 'Trey', age: 24},
+          {name: 'India', age: 35}
+        ];
+        $scope.addStudent = function(){
+          //add to the array
+          $scope.students_Array.push($scope.newStudent);
+          // clear the form values
+          $scope.newStudent = {};
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <h1>INDEX PAGE</h1>
+
+    <div ng-controller='studentController'>
+      <ul>
+        <li ng-repeat="student in students_Array">{{student.name}}, {{student.age}}</li>
+      </ul>
+      <h3>Add a New Student</h3>
+      <form>
+        Name: <input type="text" ng-model='newStudent.name'>
+        Age: <input type="text" ng-model='newStudent.age'>
+        <input type="submit" value="add new student" ng-click="addStudent()">
+      </form>
+    </div>
+
+
+  </body>
+</html>

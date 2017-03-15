@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app='myApp'>
+  <head>
+    <title>Angular First Project</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.js"></script>
+    <script type="text/javascript">
+      var myAppModule = angular.module('myApp', []);
+      // the .controller() method add a controller to the module
+      myAppModule.controller('studentController', function ($scope) {
+        $scope.students_Array = [
+          {name: 'Mike', age: 34},
+          {name: 'John', age: 24},
+          {name: 'Trey', age: 24},
+          {name: 'India', age: 35}
+        ];
+      });
+    </script>
+  </head>
+  <body>
+    <h1>INDEX PAGE</h1>
+
+    <div ng-controller='studentController'>
+      <ul>
+        <li ng-repeat="student in students_Array">{{student.name}}, {{student.age}}</li>
+      </ul>
+    </div>
+
+    <div ng-controller='studentController'>
+      <ul>
+        <li ng-repeat="canBeAnyValue in students_Array">{{canBeAnyValue.name}}, {{canBeAnyValue.age}}</li>
+      </ul>
+    </div>
+
+    <div ng-controller='studentController'>
+      <ul>
+        <li ng-repeat=" X in students_Array">{{X.name}}, {{X.age}}</li>
+      </ul>
+    </div>
+
+  </body>
+</html>

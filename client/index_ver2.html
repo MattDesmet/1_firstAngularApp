@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html ng-app='myApp'>
+  <head>
+    <title>Angular First Project</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.js"></script>
+    <script type="text/javascript">
+      var myAppModule = angular.module('myApp', []);
+    </script>
+  </head>
+  <body>
+    <h1>INDEX PAGE</h1>
+    <p>{{1+1}}</p>
+    <p>{{2+2}}</p>
+
+    <div ng-init="students_Array=['matt', 'kennon', 'michael']">
+      <ul>
+        <li ng-repeat="canBeAnyValue in students_Array">{{canBeAnyValue}}</li>
+      </ul>
+    </div>
+
+    <div ng-init="students=[{name: 'Mike', age: 34}, {name: 'John', age: 24}, {name: 'Trey', age: 24}, {name: 'India', age: 35}]">
+      <ul>
+        <li ng-repeat="student in students">{{student.name}}, {{student.age}}</li>
+      </ul>
+    </div>
+
+    <div ng-init="students_object=[{name: 'Mike', age: 34}, {name: 'John', age: 24}, {name: 'Trey', age: 24}, {name: 'India', age: 35}]">
+      <ul>
+        <li ng-repeat="X in students_object">{{X.name}}, {{X.age}}</li>
+      </ul>
+    </div>
+
+  </body>
+</html>
